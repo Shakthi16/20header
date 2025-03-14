@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ice Cream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        .split-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.ibb.co/pYdNSBd/f56c241c92140b54d7d28716ca50b196-Photoroom.png') no-repeat center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .ice-cream-image {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        .ice-cream-image:hover {
+            transform: translateY(-10px);
+        }
+        .flavor-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .flavor-option:hover {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .flavor-option.selected {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <!-- Split Header -->
+    <header class="split-header">
+        <!-- Left Section -->
+        <div class="flex items-center space-x-4">
+            <button class="text-2xl text-gray-800 hover:text-red-600 transition-colors">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Center Section -->
+        <h1 class="text-3xl font-bold text-red-600 text-center">
+            ISECREAM
+        </h1>
+        <!-- Right Section -->
+        <div class="flex items-center justify-end space-x-4">
+            <button class="text-2xl text-gray-800 hover:text-red-600 transition-colors">
+                <i class="far fa-heart"></i>
+            </button>
+            <button class="text-2xl text-gray-800 hover:text-red-600 transition-colors">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-6xl font-bold text-gray-800 mb-4">
+                Craft Ice Cream
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+                150 gr
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-red-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-red-700 transition-colors">
+                    BUY NOW
+                </button>
+                <button class="border border-red-600 text-red-600 px-8 py-3 rounded-full hover:bg-red-50 transition-colors">
+                    + ADD TOPPING
+                </button>
+            </div>
+            <!-- Ice Cream Image -->
+            <div class="mt-12 relative ice-cream-image">
+                <img src="https://i.ibb.co/84L1fSy0/de0b04f0d7b064618874ab3e81c2d54d-Photoroom.png" alt="Ice cream cone" class="w-72 h-72 object-contain mx-auto"/>
+            </div>
+            <!-- Flavor Options -->
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+                <div class="flavor-option" data-flavor="Pistachio">
+                    <span class="text-lg text-gray-800">Pistachio</span>
+                </div>
+                <div class="flavor-option" data-flavor="Strawberry">
+                    <span class="text-lg text-gray-800">Strawberry</span>
+                </div>
+                <div class="flavor-option" data-flavor="Raspberry">
+                    <span class="text-lg text-gray-800">Raspberry</span>
+                </div>
+                <div class="flavor-option" data-flavor="Peach">
+                    <span class="text-lg text-gray-800">Peach</span>
+                </div>
+                <div class="flavor-option" data-flavor="Banana">
+                    <span class="text-lg text-gray-800">Banana</span>
+                </div>
+                <div class="flavor-option" data-flavor="Mango">
+                    <span class="text-lg text-gray-800">Mango</span>
+                </div>
+                <div class="flavor-option" data-flavor="Mint">
+                    <span class="text-lg text-gray-800">Mint</span>
+                </div>
+            </div>
+            <!-- Stats Section -->
+            <div class="mt-12 grid grid-cols-2 gap-8">
+                <div class="text-center">
+                    <p class="text-5xl font-bold text-red-600">10</p>
+                    <p class="text-lg text-gray-600">Tastes</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl font-bold text-red-600">23</p>
+                    <p class="text-lg text-gray-600">Types of Toppings</p>
+                </div>
+            </div>
+            <!-- Eco-Friendly Section -->
+            <div class="mt-12 flex items-center justify-center bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+                <img src="https://storage.googleapis.com/a1aa/image/-hikcGtkPvaBhT2VxXbRRNmOxgPFG-8zpRx9t1LzLdA.jpg" alt="Eco-friendly badge" class="w-16 h-16 object-cover rounded-full"/>
+                <p class="ml-4 text-gray-600 text-left">
+                    We use only organic milk. You can watch a video on how we prepare the ice cream for you.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Add interactivity to flavor options
+        const flavorOptions = document.querySelectorAll('.flavor-option');
+        flavorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Toggle selected state
+                option.classList.toggle('selected');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Excellence Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .btn-3d {
+            box-shadow: 0 4px #999;
+            position: relative;
+            overflow: hidden;
+            transition: width 0.3s ease;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-3d:active {
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+        .btn-3d:hover {
+            background-color: #f0f0f0;
+            width: 100px;
+        }
+        .btn-3d:hover .tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .tooltip {
+            position: absolute;
+            right: 20px;
+            top: 2%;
+            background-color: transparent;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 15px;
+            white-space: nowrap;
+            opacity: 0;
+            font-weight: 500;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">Design Excellence Gallery</h1>
+            <p class="text-lg text-gray-600 mt-2">
+                This gallery includes 20 types of headers, each designed to inspire and showcase the best in visual design.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/SX8MHmYB/Screenshot-2025-03-13-212527.png" alt="Timeless elegance with traditional appeal." class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Timeless</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Classic Header Style </h2>
+                    <p class="mt-2 text-gray-600">Timeless elegance with traditional appeal.</p>
+                    <div class="mt-4">
+                        <a href="1.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/B2Qvhc40/Screenshot-2025-03-12-205739.png" alt="An inspiring and creative header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Modern</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Modern Header Style</h2>
+                    <p class="mt-2 text-gray-600">Sleek and contemporary with clean lines.</p>
+                    <div class="mt-4">
+                        <a href="2.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/SwWMwdkL/Screenshot-2025-03-12-205957.png" alt="An elegant and sophisticated header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Minimal</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Plain Header Style </h2>
+                    <p class="mt-2 text-gray-600">Simple, no-frills design for clarity.</p>
+                    <div class="mt-4">
+                        <a href="3.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/BhXqM1g/Screenshot-2025-03-12-210114.png" alt="A creative and unique header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide"> Asymmetrical</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Stack Left Header Style </h2>
+                    <p class="mt-2 text-gray-600">Content-focused with left-aligned elements.</p>
+                    <div class="mt-4">
+                        <a href="4.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/yBPw2gw8/Screenshot-2025-03-12-224215.png" alt="A modern and clean header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Balanced</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Stack Center Header Style </h2>
+                    <p class="mt-2 text-gray-600">Balanced and centered for symmetrical appeal.</p>
+                    <div class="mt-4">
+                        <a href="5.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/PzVFkBcL/Screenshot-2025-03-12-210212.png" alt="A bold and striking header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide"> Off-center</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Stack Right Header Style </h2>
+                    <p class="mt-2 text-gray-600">A Right-aligned for a unique, off-center touch.</p>
+                    <div class="mt-4">
+                        <a href="6.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/R4HnMnGf/Screenshot-2025-03-13-190917.png" alt="A classic and timeless header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Editorial</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Magazine Header Style </h2>
+                    <p class="mt-2 text-gray-600">Editorial style for content-rich displays</p>
+                    <div class="mt-4">
+                        <a href="7.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/gbbhwfxf/Screenshot-2025-03-13-212200.png" alt="A minimal and clean header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Bold</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Creative Header Style </h2>
+                    <p class="mt-2 text-gray-600">Bold and innovative with artistic flair.</p>
+                    <div class="mt-4">
+                        <a href="8.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/zTBp3c4c/Screenshot-2025-03-13-204841.png" alt="A vibrant and colorful header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Engaging</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Creative Always Open Header Style</h2>
+                    <p class="mt-2 text-gray-600">Unconventional and engaging, always accessible.</p>
+                    <div class="mt-4">
+                        <a href="9.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/PGKpyGcP/Screenshot-2025-03-13-205919.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Steady</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Fixed Header Style </h2>
+                    <p class="mt-2 text-gray-600">Steady and anchored for consistent navigation</p>
+                    <div class="mt-4">
+                        <a href="10.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/chnTRtn8/Screenshot-2025-03-13-213150.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Artistic</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Creative Right Header Style</h2>
+                    <p class="mt-2 text-gray-600">Artistic design with a right-aligned focus.</p>
+                    <div class="mt-4">
+                        <a href="11.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/PZbM9h3f/Screenshot-2025-03-13-210928.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Dynamic</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Creative Right Always Open Header Style</h2>
+                    <p class="mt-2 text-gray-600">Dynamic and ever-present with creative right alignment.</p>
+                    <div class="mt-4">
+                        <a href="12.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/Z1VXsSXd/Screenshot-2025-03-13-215517.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Minimalist</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Empty Header Style</h2>
+                    <p class="mt-2 text-gray-600">Minimalist approach, leaving room for creativity</p>
+                    <div class="mt-4">
+                        <a href="13.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/p6mkSqTm/Screenshot-2025-03-13-211740.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Subtle</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Transparent Header Style</h2>
+                    <p class="mt-2 text-gray-600">Subtle background integration with a clean overlay.</p>
+                    <div class="mt-4">
+                        <a href="14.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/6RVj6zNz/Screenshot-2025-03-13-214238.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Clean</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Simple Header Style</h2>
+                    <p class="mt-2 text-gray-600">Clean and straightforward, emphasizing ease.</p>
+                    <div class="mt-4">
+                        <a href="15.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/pBc3HJxf/Screenshot-2025-03-14-185048.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Layered</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Overlay Header Style</h2>
+                    <p class="mt-2 text-gray-600">A modern twist with content on top of the background.</p>
+                    <div class="mt-4">
+                        <a href="16.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/GQ22GgJW/Screenshot-2025-03-14-200659.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Flowing</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Below Slider Header Style</h2>
+                    <p class="mt-2 text-gray-600">Placed below the slider for a smooth flow.</p>
+                    <div class="mt-4">
+                        <a href="17.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/Pv5cDy1K/Screenshot-2025-03-13-221704.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Structured</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Below Slider Split Header Style</h2>
+                    <p class="mt-2 text-gray-600">Split design below the slider for added structure.</p>
+                    <div class="mt-4">
+                        <a href="18.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/whfj23Jh/Screenshot-2025-03-14-203358.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide"> Divided</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Split Header Style</h2>
+                    <p class="mt-2 text-gray-600">Divided layout for an engaging, balanced experience.</p>
+                    <div class="mt-4">
+                        <a href="19.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card">
+                <img src="https://i.ibb.co/pvTknYw8/Screenshot-2025-03-14-203607.png" alt="A sophisticated and elegant header design" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide">Layered</span>
+                    <h2 class="mt-2 text-2xl font-bold text-gray-900">Navigation Header Style with button hover</h2>
+                    <p class="mt-2 text-gray-600"> Different types of navigation bar with hovering styles .</p>
+                    <div class="mt-4">
+                        <a href="1index.html" class="inline-block bg-white text-black rounded-full p-2 shadow btn-3d hover:bg-gray-100">
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="tooltip">View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

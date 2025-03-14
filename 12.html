@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced To-Do List Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #6b7280;
+        }
+        .important {
+            color: #f59e0b; /* Amber color for important tasks */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-row-reverse">
+    <!-- Sidebar (Navigation Bar) on the Right Side -->
+    <div class="w-64 bg-white shadow-md h-screen">
+        <div class="p-4 border-b">
+            <h1 class="text-2xl font-bold">To-Do List</h1>
+        </div>
+        <nav class="mt-4">
+            <ul>
+                <li class="group">
+                    <a href="#" class="flex items-center p-4 text-gray-700 hover:bg-gray-200" onclick="showSection('home')">
+                        <i class="fas fa-home mr-3"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a href="#" class="flex items-center p-4 text-gray-700 hover:bg-gray-200" onclick="showSection('tasks')">
+                        <i class="fas fa-tasks mr-3"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a href="#" class="flex items-center p-4 text-gray-700 hover:bg-gray-200" onclick="showSection('calendar')">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        <span>Calendar</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a href="#" class="flex items-center p-4 text-gray-700 hover:bg-gray-200" onclick="showSection('statistics')">
+                        <i class="fas fa-chart-bar mr-3"></i>
+                        <span>Statistics</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a href="#" class="flex items-center p-4 text-gray-700 hover:bg-gray-200" onclick="showSection('settings')">
+                        <i class="fas fa-cog mr-3"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <!-- Home Section -->
+        <div class="section" id="home">
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">Welcome to Your Enhanced To-Do List App!</h2>
+                <p class="mb-4 text-gray-700">
+                    Stay organized, productive, and on top of your tasks with our powerful To-Do List application. Whether you're managing daily tasks, planning for the future, or tracking important deadlines, this app has everything you need.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2">✨ Key Features</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Add tasks with due dates and times</li>
+                            <li>Mark tasks as important or completed</li>
+                            <li>View tasks in a monthly calendar</li>
+                            <li>Track your progress with statistics</li>
+                            <li>Set reminders for important deadlines</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2">📅 Why Use This App?</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Never miss a deadline again</li>
+                            <li>Stay focused on your priorities</li>
+                            <li>Visualize your tasks in a calendar view</li>
+                            <li>Track your productivity over time</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <button onclick="showSection('tasks')" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Section -->
+        <div class="section hidden" id="tasks">
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">My Tasks</h2>
+                <p class="mb-4 text-gray-700">
+                    Add, manage, and organize your tasks effortlessly. Set due dates, mark tasks as important, and track your progress. Here's how to get started:
+                </p>
+                <form id="task-form" class="mb-4">
+                    <div class="flex items-center">
+                        <input type="text" id="task-input" class="flex-1 p-2 border rounded-l-lg" placeholder="Add a new task">
+                        <input type="datetime-local" id="task-time" class="p-2 border">
+                        <button type="submit" class="bg-blue-500 text-white p-2 rounded-r-lg hover:bg-blue-600">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul id="task-list" class="space-y-2">
+                    <!-- Task items will be appended here -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="section hidden" id="calendar">
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">Calendar</h2>
+                <p class="mb-4 text-gray-700">
+                    Visualize your tasks and deadlines in a monthly calendar view. Easily navigate between months and see what's coming up next.
+                </p>
+                <div class="flex justify-between items-center mb-4">
+                    <button onclick="prevMonth()" class="bg-gray-200 p-2 rounded-lg hover:bg-gray-300">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="calendar-month-year" class="text-xl font-bold"></h3>
+                    <button onclick="nextMonth()" class="bg-gray-200 p-2 rounded-lg hover:bg-gray-300">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="calendar-container" class="grid grid-cols-7 gap-4">
+                    <!-- Calendar dates will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="section hidden" id="statistics">
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">Statistics</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold">Completed Tasks</h3>
+                        <p id="completed-tasks-count" class="text-2xl">0</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold">Pending Tasks</h3>
+                        <p id="pending-tasks-count" class="text-2xl">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="section hidden" id="settings">
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">Settings</h2>
+                <p>Adjust your application settings here.</p>
+                <form>
+                    <div class="mb-4">
+                        <label for="username" class="block text-gray-700">Username</label>
+                        <input type="text" id="username" class="w-full p-2 border rounded-lg" placeholder="Enter your username">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Email</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded-lg" placeholder="Enter your email">
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">Save Settings</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let tasks = [];
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        document.getElementById('task-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskInput = document.getElementById('task-input');
+            const taskTime = document.getElementById('task-time');
+            const taskText = taskInput.value.trim();
+            const taskDateTime = taskTime.value;
+            if (taskText !== '' && taskDateTime !== '') {
+                const task = {
+                    id: Date.now(),
+                    text: taskText,
+                    dateTime: taskDateTime,
+                    completed: false,
+                    important: false
+                };
+                tasks.push(task);
+                renderTask(task);
+                taskInput.value = '';
+                taskTime.value = '';
+                updateStatistics();
+                updateCalendar();
+            }
+        });
+
+        function renderTask(task) {
+            const taskList = document.getElementById('task-list');
+            const li = document.createElement('li');
+            li.className = 'flex items-center justify-between p-2 border rounded-lg';
+            li.innerHTML = `
+                <div>
+                    <span>${task.text}</span>
+                    <span class="text-gray-500 text-sm ml-2">(${new Date(task.dateTime).toLocaleString()})</span>
+                </div>
+                <div>
+                    <button class="text-yellow-500 hover:text-yellow-700 mr-2" onclick="toggleImportant(${task.id})">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class="text-green-500 hover:text-green-700 mr-2" onclick="markCompleted(${task.id})">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button class="text-red-500 hover:text-red-700" onclick="deleteTask(${task.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            if (task.completed) {
+                li.classList.add('completed');
+            }
+            if (task.important) {
+                li.querySelector('.fa-star').classList.add('text-yellow-500');
+            }
+            taskList.appendChild(li);
+        }
+
+        function toggleImportant(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            task.important = !task.important;
+            updateTaskList();
+        }
+
+        function markCompleted(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            task.completed = !task.completed;
+            updateTaskList();
+            updateStatistics();
+        }
+
+        function deleteTask(taskId) {
+            tasks = tasks.filter(t => t.id !== taskId);
+            updateTaskList();
+            updateStatistics();
+        }
+
+        function updateTaskList() {
+            const taskList = document.getElementById('task-list');
+            taskList.innerHTML = '';
+            tasks.forEach(task => renderTask(task));
+        }
+
+        function updateStatistics() {
+            const completedTasksCount = tasks.filter(t => t.completed).length;
+            const pendingTasksCount = tasks.filter(t => !t.completed).length;
+            document.getElementById('completed-tasks-count').textContent = completedTasksCount;
+            document.getElementById('pending-tasks-count').textContent = pendingTasksCount;
+        }
+
+        function updateCalendar() {
+            const calendarContainer = document.getElementById('calendar-container');
+            calendarContainer.innerHTML = '';
+
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const monthYear = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long', year: 'numeric' });
+            document.getElementById('calendar-month-year').textContent = monthYear;
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                calendarContainer.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(currentYear, currentMonth, day);
+                const dateString = date.toISOString().split('T')[0];
+                const dayTasks = tasks.filter(task => task.dateTime.includes(dateString));
+                const dayElement = document.createElement('div');
+                dayElement.className = 'p-2 border rounded-lg';
+                dayElement.innerHTML = `
+                    <div class="font-bold">${day}</div>
+                    <ul class="mt-2 space-y-1">
+                        ${dayTasks.map(task => `<li>${task.text}</li>`).join('')}
+                    </ul>
+                `;
+                calendarContainer.appendChild(dayElement);
+            }
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            updateCalendar();
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            updateCalendar();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCalendar();
+            updateStatistics();
+        });
+    </script>
+</body>
+</html>

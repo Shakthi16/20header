@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Series Playlist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .series-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .series-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .overlay-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-between items-center z-50">
+        <h1 class="text-2xl font-bold text-gray-800">Global Series Playlist</h1>
+        <!-- Hamburger Button -->
+        <button id="openMenu" class="text-3xl text-gray-800 hover:text-blue-500 transition">
+            ☰
+        </button>
+    </header>
+
+    <!-- Overlay Navigation Menu -->
+    <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex items-center justify-center hidden transition-opacity z-50">
+        <div class="relative overlay-content p-6 w-80 shadow-lg rounded-lg bg-white text-gray-900">
+            <button id="closeMenu" class="absolute top-2 right-4 text-xl font-bold text-gray-800 hover:text-blue-500 transition">
+                ✖
+            </button>
+            <nav class="flex flex-col items-center">
+                <h2 class="text-2xl font-semibold mb-6 text-gray-800">Menu</h2>
+                <ul class="space-y-4 text-lg">
+                    <li><a href="#home" class="hover:text-blue-500 transition" onclick="closeOverlay()">Home</a></li>
+                    <li><a href="#usa" class="hover:text-blue-500 transition" onclick="closeOverlay()">USA</a></li>
+                    <li><a href="#uk" class="hover:text-blue-500 transition" onclick="closeOverlay()">UK</a></li>
+                    <li><a href="#korea" class="hover:text-blue-500 transition" onclick="closeOverlay()">Korea</a></li>
+                    <li><a href="#india" class="hover:text-blue-500 transition" onclick="closeOverlay()">India</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Website Sections -->
+    <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+        <div class="text-center text-white">
+            <h2 class="text-5xl font-bold mb-4">Welcome to Global Series Playlist</h2>
+            <p class="text-xl">Explore the best series from around the world.</p>
+        </div>
+    </section>
+
+    <section id="usa" class="p-8 bg-gray-50">
+        <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">USA Series</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Series Cards -->
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/hiVJ0ysjsNXww9_0m-x7b9q6QNUT6vfD-tri_F759VY.jpg" alt="Poster of Stranger Things series showing a group of kids on bicycles with a dark, eerie background" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Stranger Things</h3>
+                    <p class="text-gray-600">A thrilling sci-fi series set in the 80s.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/_u1C3VTEvs0A640v0M5ZPl1c0Euyy9eVVVETuiSh-Tc.jpg" alt="Poster of Breaking Bad series showing the main character Walter White in a yellow hazmat suit" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Breaking Bad</h3>
+                    <p class="text-gray-600">A high school chemistry teacher turned methamphetamine producer.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/2vIMn9oPFS1pYo6mvbq_eM7XJYi2pa4GHGGItm_4GZ4.jpg" alt="Poster of Game of Thrones series showing the Iron Throne with a dark, ominous background" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Game of Thrones</h3>
+                    <p class="text-gray-600">An epic fantasy series based on the novels by George R.R. Martin.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/-CiRj0rjiq6gpgXzYPCKL9PEpoRXN9Fl8dYUU4omVCw.jpg" alt="Poster of The Office series showing the main cast in an office setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">The Office</h3>
+                    <p class="text-gray-600">A mockumentary sitcom depicting the everyday lives of office employees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="uk" class="p-8 bg-gray-50">
+        <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">UK Series</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Series Cards -->
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/z-iHUP4qvyoAOMzF7oHVTv5Em-RFNykMQI-Z-b0URLE.jpg" alt="Poster of The Crown series showing Queen Elizabeth II in a royal setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">The Crown</h3>
+                    <p class="text-gray-600">A historical drama about the reign of Queen Elizabeth II.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/FaQfXwAwYMDdLNTaVoMONvWk48mK5lVOJw7OeqrktqI.jpg" alt="Poster of Sherlock series showing Benedict Cumberbatch as Sherlock Holmes" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Sherlock</h3>
+                    <p class="text-gray-600">A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/Mrw5iEAfUsBD0T46dCMy5m6tU7pFxhhtOjnj0QgdPOo.jpg" alt="Poster of Black Mirror series showing a shattered mirror with a dark background" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Black Mirror</h3>
+                    <p class="text-gray-600">An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/v78IcT0PVUeJ79MsyBByvcQ-VybVzpTX0T0ieIiN7KA.jpg" alt="Poster of Doctor Who series showing the TARDIS in a cosmic background" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Doctor Who</h3>
+                    <p class="text-gray-600">The adventures of a Time Lord from the planet Gallifrey who travels through time and space in the TARDIS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="korea" class="p-8 bg-gray-50">
+        <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">Korean Series</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Series Cards -->
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/WAe3T4yA46ROsVgKNN3hyXt_VZspg3UylEZlwRTR5yQ.jpg" alt="Poster of Crash Landing on You series showing the main characters in a romantic setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Crash Landing on You</h3>
+                    <p class="text-gray-600">A romantic drama about a South Korean heiress who lands in North Korea.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/YIRMU8xdREULd3RnSBtkS7ql9JxEKkLAIaa_80LfM_g.jpg" alt="Poster of Kingdom series showing a historical setting with zombies" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Kingdom</h3>
+                    <p class="text-gray-600">A historical drama with a zombie twist set in Korea's Joseon period.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/rZyj-Nx_4cveqN_MTgsSkmFy9WLVjCYyvVU3v94qNMM.jpg" alt="Poster of Itaewon Class series showing the main characters in a vibrant city setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Itaewon Class</h3>
+                    <p class="text-gray-600">An ex-con and his friends fight to make their ambitious dreams for their street bar a reality.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/JI-Qvo_PRbXdCiykmc0fp42Idu28U23z4QCC6WLDaY0.jpg" alt="Poster of My Love from the Star series showing the main characters in a romantic setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">My Love from the Star</h3>
+                    <p class="text-gray-600">An alien who has been on Earth for 400 years falls in love with a top actress in the modern era.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="india" class="p-8 bg-gray-50">
+        <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">Indian Series</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Series Cards -->
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/XhNPj1BH7NGJJbmA-dd7GlcLplJSe95Ou5DDdnjGsJM.jpg" alt="Poster of Sacred Games series showing the main characters in a dark, intense setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Sacred Games</h3>
+                    <p class="text-gray-600">A crime thriller based on the novel by Vikram Chandra.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/hdro0L8iydicpMIFQIGL9x18nVzhZfD8aufXY6pQISA.jpg" alt="Poster of Mirzapur series showing the main characters in a gritty, intense setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Mirzapur</h3>
+                    <p class="text-gray-600">A crime thriller set in the lawless city of Mirzapur.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/cNveBA4Npl_CAa-S5Szf75rwAjdqAKiA0LXXRVNssZU.jpg" alt="Poster of Made in Heaven series showing the main characters in a glamorous wedding setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Made in Heaven</h3>
+                    <p class="text-gray-600">A drama series that follows two wedding planners in Delhi.</p>
+                </div>
+            </div>
+            <div class="series-card bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://storage.googleapis.com/a1aa/image/_0QFAGxX0lPvmWjC38ji5j8YAlajvdPasdUw-_uizi0.jpg" alt="Poster of Paatal Lok series showing the main characters in a dark, intense setting" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Paatal Lok</h3>
+                    <p class="text-gray-600">A crime thriller that delves into the dark underbelly of society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const openMenu = document.getElementById('openMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('overlay');
+
+        // Function to open the overlay menu
+        openMenu.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+        });
+
+        // Function to close the overlay menu
+        closeMenu.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+        });
+
+        // Function to close the menu when a navigation item is clicked
+        function closeOverlay() {
+            overlay.classList.add('hidden');
+        }
+
+        // Smooth scrolling for the navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

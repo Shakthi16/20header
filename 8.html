@@ -1,0 +1,302 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Game Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        /* Custom Styles */
+        .sidebar {
+            transition: width 0.3s ease-in-out;
+        }
+        .sidebar-closed {
+            width: 5rem;
+        }
+        .sidebar-open {
+            width: 16rem;
+        }
+        .menu-item {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .menu-item:hover, .menu-item.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #4c51bf, #667eea);
+            height: 8px;
+            border-radius: 8px;
+        }
+        .btn {
+            background: linear-gradient(90deg, #4c51bf, #667eea);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-indigo-900 text-white h-full fixed sidebar-closed" id="sidebar">
+            <div class="flex flex-col items-center py-4">
+                <i class="fas fa-bars text-xl mb-8 cursor-pointer hover:text-gray-300" id="toggleSidebar"></i>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'dashboard')">
+                    <i class="fas fa-gamepad text-xl"></i>
+                    <span class="ml-4 hidden">Dashboard</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'achievements')">
+                    <i class="fas fa-trophy text-xl"></i>
+                    <span class="ml-4 hidden">Achievements</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'multiplayer')">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="ml-4 hidden">Multiplayer</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'store')">
+                    <i class="fas fa-store text-xl"></i>
+                    <span class="ml-4 hidden">Store</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'settings')">
+                    <i class="fas fa-cogs text-xl"></i>
+                    <span class="ml-4 hidden">Settings</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'help')">
+                    <i class="fas fa-question-circle text-xl"></i>
+                    <span class="ml-4 hidden">Help</span>
+                </div>
+                <div class="menu-item flex items-center mb-6 p-3 rounded-lg cursor-pointer" onclick="activateMenuItem(this, 'about')">
+                    <i class="fas fa-info-circle text-xl"></i>
+                    <span class="ml-4 hidden">About</span>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-grow p-8 ml-20 transition-all duration-300" id="mainContent">
+            <!-- Dashboard Section (Visible by Default) -->
+            <div id="dashboard">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Dashboard</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Free Online Games Links -->
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Slither.io</h2>
+                        <p class="text-gray-600 mb-4">Play the classic snake game with a multiplayer twist.</p>
+                        <a href="https://slither.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Agar.io</h2>
+                        <p class="text-gray-600 mb-4">Grow your cell by eating smaller cells and avoid larger ones.</p>
+                        <a href="https://agar.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Krunker.io</h2>
+                        <p class="text-gray-600 mb-4">A fast-paced multiplayer first-person shooter.</p>
+                        <a href="https://krunker.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Surviv.io</h2>
+                        <p class="text-gray-600 mb-4">Battle Royale game in a 2D format.</p>
+                        <a href="https://surviv.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Shell Shockers</h2>
+                        <p class="text-gray-600 mb-4">Multiplayer egg-based shooter game.</p>
+                        <a href="https://shellshock.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Skribbl.io</h2>
+                        <p class="text-gray-600 mb-4">Multiplayer drawing and guessing game.</p>
+                        <a href="https://skribbl.io" target="_blank" class="btn">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Other Sections (Hidden by Default) -->
+            <div class="hidden" id="achievements">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Achievements</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Master Explorer</h2>
+                        <p class="text-gray-600 mb-4">Unlock this achievement by visiting all 50 hidden locations.</p>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-bar-fill" style="width: 30%;"></div>
+                        </div>
+                        <p class="mt-2 text-gray-600">30% Complete</p>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Battle Hardened</h2>
+                        <p class="text-gray-600 mb-4">Win 100 battles to earn this prestigious achievement.</p>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                        <p class="mt-2 text-gray-600">75% Complete</p>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Legendary Hero</h2>
+                        <p class="text-gray-600 mb-4">Complete all main quests to become a legendary hero.</p>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-bar-fill" style="width: 10%;"></div>
+                        </div>
+                        <p class="mt-2 text-gray-600">10% Complete</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Multiplayer Section -->
+            <div class="hidden" id="multiplayer">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Multiplayer</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Join a Game</h2>
+                        <p class="text-gray-600 mb-4">Join an existing multiplayer game and compete with others.</p>
+                        <button class="btn">Join Now</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Create a Room</h2>
+                        <p class="text-gray-600 mb-4">Create your own game room and invite friends to join.</p>
+                        <button class="btn">Create Room</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Leaderboards</h2>
+                        <p class="text-gray-600 mb-4">Check out the leaderboards to see where you stand.</p>
+                        <button class="btn">View Leaderboard</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Store Section -->
+            <div class="hidden" id="store">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Store</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Weapons</h2>
+                        <p class="text-gray-600 mb-4">Upgrade your arsenal with the latest weapons.</p>
+                        <button class="btn">Shop Weapons</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Armor</h2>
+                        <p class="text-gray-600 mb-4">Protect yourself with the best armor available.</p>
+                        <button class="btn">Shop Armor</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Consumables</h2>
+                        <p class="text-gray-600 mb-4">Stock up on potions and other consumables.</p>
+                        <button class="btn">Shop Consumables</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings Section -->
+            <div class="hidden" id="settings">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Settings</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Graphics</h2>
+                        <p class="text-gray-600 mb-4">Adjust the graphics settings to optimize performance.</p>
+                        <button class="btn">Configure Graphics</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Audio</h2>
+                        <p class="text-gray-600 mb-4">Customize the audio settings for the best experience.</p>
+                        <button class="btn">Configure Audio</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Controls</h2>
+                        <p class="text-gray-600 mb-4">Configure the controls to suit your playstyle.</p>
+                        <button class="btn">Configure Controls</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Help Section -->
+            <div class="hidden" id="help">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">Help</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">FAQs</h2>
+                        <p class="text-gray-600 mb-4">Find answers to frequently asked questions.</p>
+                        <button class="btn">View FAQs</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Guides</h2>
+                        <p class="text-gray-600 mb-4">Read through our comprehensive game guides.</p>
+                        <button class="btn">View Guides</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Support</h2>
+                        <p class="text-gray-600 mb-4">Contact our support team for assistance.</p>
+                        <button class="btn">Contact Support</button>
+                    </div>
+                </div>
+            </div>
+            <!-- About Section -->
+            <div class="hidden" id="about">
+                <h1 class="text-3xl font-bold mb-6 text-gray-800">About</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Our Story</h2>
+                        <p class="text-gray-600 mb-4">Learn about the history and mission of our game.</p>
+                        <button class="btn">Read More</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">The Team</h2>
+                        <p class="text-gray-600 mb-4">Meet the talented team behind the game.</p>
+                        <button class="btn">Meet the Team</button>
+                    </div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold mb-3 text-gray-800">Careers</h2>
+                        <p class="text-gray-600 mb-4">Join our team and help create amazing games.</p>
+                        <button class="btn">View Careers</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Toggle Sidebar
+        document.getElementById('toggleSidebar').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-closed');
+            sidebar.classList.toggle('sidebar-open');
+            document.querySelectorAll('.menu-item span').forEach(span => {
+                span.classList.toggle('hidden');
+            });
+        });
+
+        // Activate Menu Item
+        function activateMenuItem(element, sectionId) {
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            document.querySelectorAll('#mainContent > div').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Set Dashboard as Default
+        document.addEventListener('DOMContentLoaded', function() {
+            activateMenuItem(document.querySelector('.menu-item'), 'dashboard');
+        });
+    </script>
+</body>
+</html>

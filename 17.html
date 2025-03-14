@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Delight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .hover-circle:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 182, 193, 0.2); /* Pastel pink */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .pastel-pink {
+            background-color: #FFD1DC; /* Pastel pink */
+        }
+        .pastel-caramel {
+            background-color: #D4A59A; /* Pastel caramel */
+        }
+        .pastel-white {
+            background-color: #FFF8E7; /* Pastel white */
+        }
+        .text-pastel-pink {
+            color: #FF6F61; /* Pastel pink text */
+        }
+        .text-pastel-caramel {
+            color: #D4A59A; /* Pastel caramel text */
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .footer-button {
+            position: relative;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .footer-button:hover {
+            background-color: rgba(255, 182, 193, 0.2); /* Light pastel pink hover */
+        }
+    </style>
+</head>
+<body class="pastel-white flex flex-col items-center justify-between min-h-screen">
+    <!-- Main Content Section -->
+    <main class="flex-grow container mx-auto px-6 py-12 text-center">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h2 class="text-5xl font-bold text-pastel-pink mb-6">Welcome to Cookie Delight</h2>
+            <p class="text-lg text-pastel-caramel mb-8">Discover the best cookies in town, made with love and the finest ingredients.</p>
+            <button class="pastel-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-pink-300 transition-colors duration-300">Order Now</button>
+
+            <!-- Cookie Offers Section -->
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Chocolate Chip Cookies -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover-grow transition-transform duration-300">
+                    <img src="https://storage.googleapis.com/a1aa/image/8rcACdCbnPnUSskIx69N4-WslTvUJrAExXybAyLeCzE.jpg" alt="Chocolate Chip Cookies" class="w-full h-48 object-cover rounded-t-2xl">
+                    <h3 class="text-2xl font-bold text-pastel-pink mt-6">Chocolate Chip Cookies</h3>
+                    <p class="text-gray-600 mt-4">Delicious chocolate chip cookies made with the finest ingredients.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleFavorite(this)">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                        <button class="pastel-pink text-white font-bold py-2 px-6 rounded-full hover:bg-pink-300 transition-colors duration-300">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Oatmeal Raisin Cookies -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover-grow transition-transform duration-300">
+                    <img src="https://storage.googleapis.com/a1aa/image/eI0-V0-i4v6QXhniphOynUCyFkYEjxTnr3RBSULHw0k.jpg" alt="Oatmeal Raisin Cookies" class="w-full h-48 object-cover rounded-t-2xl">
+                    <h3 class="text-2xl font-bold text-pastel-pink mt-6">Oatmeal Raisin Cookies</h3>
+                    <p class="text-gray-600 mt-4">Healthy and tasty oatmeal raisin cookies for a perfect snack.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleFavorite(this)">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                        <button class="pastel-pink text-white font-bold py-2 px-6 rounded-full hover:bg-pink-300 transition-colors duration-300">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Peanut Butter Cookies -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover-grow transition-transform duration-300">
+                    <img src="https://storage.googleapis.com/a1aa/image/I9DIqyI02ribLaDuYhhtfoA_NCZDJtuhhnyEvpPAD6U.jpg" alt="Peanut Butter Cookies" class="w-full h-48 object-cover rounded-t-2xl">
+                    <h3 class="text-2xl font-bold text-pastel-pink mt-6">Peanut Butter Cookies</h3>
+                    <p class="text-gray-600 mt-4">Rich and creamy peanut butter cookies that melt in your mouth.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="text-pastel-pink text-2xl hover-circle" onclick="toggleFavorite(this)">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                        <button class="pastel-pink text-white font-bold py-2 px-6 rounded-full hover:bg-pink-300 transition-colors duration-300">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="section">
+            <h2 class="text-5xl font-bold text-pastel-pink mb-6">Your Favorites</h2>
+            <div id="favorite-items" class="mt-8">
+                <!-- Favorite items will be appended here -->
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section id="comments" class="section">
+            <h2 class="text-5xl font-bold text-pastel-pink mb-6">Comments</h2>
+            <p class="text-lg text-pastel-caramel mb-8">Share your thoughts about our cookies!</p>
+            <textarea class="w-full p-4 rounded-lg border border-pastel-pink" placeholder="Write your comment here..."></textarea>
+            <button class="pastel-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-pink-300 transition-colors duration-300 mt-4">Submit</button>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <h2 class="text-5xl font-bold text-pastel-pink mb-6">Your Profile</h2>
+            <p class="text-lg text-pastel-caramel mb-8">Manage your account settings and preferences.</p>
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-2xl font-bold text-pastel-pink mb-4">Account Details</h3>
+                <p class="text-gray-600">Name: John Doe</p>
+                <p class="text-gray-600">Email: john.doe@example.com</p>
+                <button class="pastel-pink text-white font-bold py-2 px-6 rounded-full hover:bg-pink-300 transition-colors duration-300 mt-4">Edit Profile</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Navigation Section -->
+    <footer class="w-full bg-white py-6 shadow-lg">
+        <div class="container mx-auto flex justify-around items-center">
+            <button class="footer-button text-pastel-pink text-2xl" onclick="showSection('home')">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="footer-button text-pastel-pink text-2xl" onclick="showSection('favorites')">
+                <i class="far fa-heart"></i>
+            </button>
+            <button class="footer-button text-pastel-pink text-2xl" onclick="showSection('comments')">
+                <i class="far fa-comment"></i>
+            </button>
+            <button class="footer-button text-pastel-pink text-2xl" onclick="showSection('profile')">
+                <i class="far fa-user"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Function to toggle sections
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Function to toggle heart icon
+        function toggleHeart(button) {
+            const heartIcon = button.querySelector('i');
+            const favoriteItems = document.getElementById('favorite-items');
+            const itemTitle = button.closest('.hover-grow').querySelector('h3').innerText;
+
+            if (heartIcon.classList.contains('far')) {
+                heartIcon.classList.remove('far');
+                heartIcon.classList.add('fas');
+
+                // Add item to favorites section
+                const item = document.createElement('div');
+                item.className = 'bg-white rounded-2xl shadow-xl p-4 mb-4';
+                item.innerText = itemTitle;
+                favoriteItems.appendChild(item);
+            } else {
+                heartIcon.classList.remove('fas');
+                heartIcon.classList.add('far');
+
+                // Remove item from favorites section
+                const items = favoriteItems.querySelectorAll('div');
+                items.forEach(item => {
+                    if (item.innerText === itemTitle) {
+                        favoriteItems.removeChild(item);
+                    }
+                });
+            }
+        }
+
+        // Function to toggle favorite icon
+        function toggleFavorite(button) {
+            const bookmarkIcon = button.querySelector('i');
+            if (bookmarkIcon.classList.contains('far')) {
+                bookmarkIcon.classList.remove('far');
+                bookmarkIcon.classList.add('fas');
+            } else {
+                bookmarkIcon.classList.remove('fas');
+                bookmarkIcon.classList.add('far');
+            }
+        }
+    </script>
+</body>
+</html>
